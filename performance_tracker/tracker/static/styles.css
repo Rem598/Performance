@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background:linear-gradient(to right, rgb(163, 215, 245), rgb(34, 213, 245));
+}
+.homepage-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;  
+    text-align: center; 
+}
+.features-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.feature {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    width: 250px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1em;
+    color: #555;
+}
+
+h1, h2 {
+    color: #333;
+    text-align: center;
+}
+
+form {
+    width: 300px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #d4cccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form input, form button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+form button {
+    background-color: #4d0975;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #910c4a;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    background: #d4cccc;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+canvas {
+    display: block;
+    margin: 20px auto;
+    background:#d4cccc;
+}
+
+.logout {
+    position: absolute;  
+    top: 10px;          
+    left: 10px;         
+}
+
+.logout-link {
+    color: #333;               
+    font-weight: bold;         
+    text-decoration: none;     
+    font-size: 16px;           
+} 
+.account {
+    position: absolute;  
+    top: 10px;          
+    left: 10px;         
+}
+
+.account-link {
+    color: #333;               
+    font-weight: bold;         
+    text-decoration: none;     
+    font-size: 16px;           
+} 

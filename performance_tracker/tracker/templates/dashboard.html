@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Performance Tracker</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="{% url 'account' %}" class="account-link" style="font-weight: bold;">Account</a>
+        <a href="{% url 'logout' %}" class="logout-link" style="font-weight: bold;">Logout</a>
+    </div>
+    
+    <h1>Welcome to your Dashboard, {{ user.username }}!</h1>
+    <h2>Enter Performance Data</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    <!-- Table to display entered data -->
+    <h2>Your Performance Data</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Income</th>
+                <th>Expenses</th>
+                <th>Profit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in data %}
+            <tr>
+                <td>{{ entry.date }}</td>
+                <td>{{ entry.income }}</td>
+                <td>{{ entry.expenses }}</td>
+                <td>{{ entry.profit }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Chart to display trends -->
+    <h2>Performance Trends</h2>
+    <canvas id="performanceChart" width="400" height="200"></canvas>
+
+    <script>
+        var chartData = JSON.parse('{{ chart_data|escapejs }}');
+
+        var ctx = document.getElementById('performanceChart').getContext('2d');
+        var performanceChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: chartData.dates,
+                datasets: [
+                    {
+                        label: 'Income',
+                        data: chartData.income,
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        fill: false,
+                    },
+                    {
+                        label: 'Expenses',
+                        data: chartData.expenses,
+                        borderColor: 'rgba(255, 99, 132, 1)',
+                        fill: false,
+                    },
+                    {
+                        label: 'Profit',
+                        data: chartData.profit,
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        fill: false,
+                    }
+                ]
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Account - Performance Tracker</title>
+    
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Your Account Details</h1>
+    <div class="account-info">
+        <p>Username: {{ user.username }}</p>
+        <p>Email: {{ user.email }}</p>
+        
+        <a href="{% url 'logout' %}" class="logout-link" style="font-weight: bold;">Logout</a>
+    </div>
+</body>
+</html>

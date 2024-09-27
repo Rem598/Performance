@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Performance Tracker</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="homepage-container">
+        <h1>Welcome to Performance Tracker</h1>
+        <p>We help businesses track their performance efficiently through user-friendly dashboards and reports.</p>
+        
+        <div class="home-actions">
+            <a href="{% url 'login' %}" class="button">Login</a>
+            <a href="{% url 'register' %}" class="button">Register</a>
+        </div>
+        
+        <h2>Why Choose Us?</h2>
+        <div class="features-container">
+            <div class="feature">
+                <h3>Comprehensive Tracking</h3>
+                <p>Monitor your income, expenses, and profits with ease.</p>
+            </div>
+            <div class="feature">
+                <h3>User-Friendly Dashboard</h3>
+                <p>Get instant access to all your performance metrics at a glance.</p>
+            </div>
+            <div class="feature">
+                <h3>Custom Reports</h3>
+                <p>Generate and download reports tailored to your business needs.</p>
+            </div>
+            <div class="feature">
+                <h3>Secure & Reliable</h3>
+                <p>Your data is protected with advanced security measures.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
