@@ -1,6 +1,5 @@
-
 # Create your views here.
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -75,6 +74,21 @@ def dashboard(request):
     }
 
     return render(request, 'dashboard.html', context)
+
+def categorize_expense(description):
+    if 'rent' in description.lower():
+        return 'Rent'
+    elif 'electricity' in description.lower():
+        return 'Utilities'
+    else:
+        return 'Miscellaneous'
+
+def add_expense(amount, description):
+    category = categorize_expense(description)
+    expense = expense.objects.create(amount=amount, category=category, description=description)
+    return expense
+
+
 
 @login_required
 def account(request):

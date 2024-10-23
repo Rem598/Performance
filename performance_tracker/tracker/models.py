@@ -16,3 +16,17 @@ class PerformanceData(models.Model):
 
     def __str__(self):
         return f'{self.user.username} - {self.date}'
+    
+
+    class Expense(models.Model):
+      amount = models.DecimalField(max_digits=10, decimal_places=2)
+      category = models.CharField(max_length=50)  # Rent, Utilities, etc.
+      description = models.TextField()
+
+    def __str__(self):
+        return self.category
+
+
+
+
+
