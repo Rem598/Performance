@@ -1,23 +1,13 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "manage.py",
-        "use": "@vercel/python"
-      }
-    ],
+    "builds": [{
+        "src": "perforamance_tracker/wsgi.py",
+        "use": "@vercel/python",
+        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
+    }],
     "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "manage.py"
-      }
-    ],
-    "env": {
-      "DB_NAME": "@db_name",
-      "DB_USER": "@db_user",
-      "DB_PASSWORD": "@db_password",
-      "DB_HOST": "@db_host",
-      "DB_PORT": "@db_port"
-    }
-  }
-  
+        {
+            "src": "/(.*)",
+            "dest": "performance_tracker/wsgi.py"
+        }
+    ]
+}
